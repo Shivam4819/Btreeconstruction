@@ -12,4 +12,5 @@ package binaryconstruction;
 public class NodeStructure {
       int key;
      NodeStructure left,right;
+     
 }
