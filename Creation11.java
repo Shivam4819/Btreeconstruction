@@ -9,17 +9,7 @@ package binaryconstruction;
  *
  * @author shivam
  */
-class Nodes{
-    int key;
-    Nodes left,right;
 
-    public Nodes(int data) {
-        key=data;
-        left=right=null;
-        
-    }
-    
-}
 public class Creation11 {
     
     public void accept(){
@@ -27,14 +17,16 @@ public class Creation11 {
         int postorder[] = {8, 4, 5, 2, 6, 7, 3, 1};
         int length=inorder.length;
         int postIndex=length-1;
-        Nodes root=buildTree(inorder,postorder,0,length-1,postIndex);    
+        Node root=buildTree(inorder,postorder,0,length-1,postIndex);    
+    
+        inorderTraversal(root);
     }
-    Nodes buildTree(int inorder[],int postorder[],int start,int end,int postindex){
+    Node buildTree(int inorder[],int postorder[],int start,int end,int postindex){
         
         if(start>end)
             return null;
         
-        Nodes temp=new Nodes(postorder[postindex]);
+        Node temp=new Node(postorder[postindex]);
         
         if(start==end)
             return temp;
@@ -54,5 +46,14 @@ public class Creation11 {
                 break;
         }
         return i;
+    }
+    
+     public void inorderTraversal(Node root){
+        if(root==null)
+            return;
+        
+        inorderTraversal(root.left);
+        System.out.print(root.key+" ");
+        inorderTraversal(root.right);
     }
 }
